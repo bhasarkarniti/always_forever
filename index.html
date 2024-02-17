@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Baby just Say YES!</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    </head>
+
+<body>
+<div class="overlay">
+<div >
+    <h1 style="padding-top: 100px;">For My Princess babygurl, LOML</h1>
+</div>
+    <button class="circular-button">
+        Click Me
+       
+    </button>
+</div>
+    <div class="valentine">
+<video id="videoBackground" autoplay muted loop>
+    <source src="niti video.mov" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+<h3 style="display: none;">This is what I am trying to Be with you</h3>
+<div class="original-couple">
+    <img class="love-birds" src="img/niti4.jpg" alt="">
+    <img class="love-birds" src="img/niti3.jpg" alt="">
+
+  </div>
+  <div class="second-couple">
+    <img class="Yesss" src="img/niti1.jpg" alt=""><span class="celebrate">Love You💓</span>
+    <img class="yes-yes" src="img/niti2.jpg" alt="">
+  </div>
+  
+    <h1>Will you officially be my Unofficial Boyfriend?</h1>
+    <button id="playButton" class="niti-yes btn btn-lg btn-success">Yes</button>
+    <audio id="audioPlayer" controls style="display: none;">
+        <source src="Cults - Always Forever.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+    <button class="niti-no btn btn-md btn-danger">No🥺</button>
+    </div>
+    <!--js animation-->
+  <script>
+    const h3 = document.querySelector("h3")
+    const clickMe = document.querySelector('.circular-button')
+    const overlay = document.querySelector('.overlay')
+    const celebrate = document.querySelector('.celebrate')
+        const imgCouple =document.querySelector('.original-couple')
+        const heading = document.querySelector("h1")
+        const img = document.querySelector(".giphy-embed")
+        const hurrayMsg = document.querySelector(".Yesss")
+        const hurrayMsg2 = document.querySelector(".yes-yes")
+        const yesButton = document.querySelector(".niti-yes");
+        const noButton = document.querySelector(".niti-no");
+        const arrayMessage = [
+            "Are you sure ?",
+                "Just think about it ???",
+                "Baby please ??",
+            "I will be very very sad…",
+           " ok, i will stop asking. ",
+"just kidding, PLEASE SAY YESS",
+"but I LOVE YOU",
+"You're breaking my heart"
+        ]
+
+        clickMe.addEventListener('click',function(){
+            overlay.style.display = "none"
+        })
+        yesButton.addEventListener("click", function(e){
+            hurrayMsg.style.display="block"
+            hurrayMsg2.style.display='block'
+            imgCouple.style.display="none"
+            celebrate.style.display='block'
+
+            
+        })
+   document.getElementById('playButton').addEventListener('click', function () {
+        var audioPlayer = document.getElementById('audioPlayer');
+        if (audioPlayer.paused) {
+            audioPlayer.play();
+            this.innerHTML = 'Pause';
+
+        } else {
+            audioPlayer.pause();
+            this.innerHTML = 'Play MP3';
+        }
+    });
+    let currentMessageIndex = 0;
+
+  noButton.addEventListener("click", function (e) {
+        if (arrayMessage.length > 0) {
+            console.log(arrayMessage[currentMessageIndex]);
+            noButton.textContent = arrayMessage[currentMessageIndex];
+
+           if (currentMessageIndex === arrayMessage.length-1) {
+                imgCouple.style.display = 'flex'
+                h3.style.display='block'
+            }
+            currentMessageIndex = (currentMessageIndex + 1) % arrayMessage.length;
+
+            // Increase the width of the yesButton based on currentMessageIndex
+            yesButton.style.width = (currentMessageIndex + 10) + "rem";
+            yesButton.style.height = (currentMessageIndex + 5) + "rem";
+            yesButton.style.fontSize = (currentMessageIndex + 2) + "rem";
+           
+
+        }
+    });
+
+
+
+
+    
+
+
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
